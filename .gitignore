@@ -3,3 +3,7 @@ obj/
 *.pdb
 *.user
 .vs/
+build.bat
+*_decompiled.cs
+*.png
+*.jpg
