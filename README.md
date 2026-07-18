@@ -1,25 +1,28 @@
 # NoBarrelShadow
 
-Removes the flashlight barrel shadow on all tactical devices — yours, the AI's, and dropped weapons.
+Tarkov draws a fake shadow of your gun barrel inside every flashlight beam. This mod deletes it — for you, the AI, and whatever's lying on the floor.
 
-## Features
+Shadows from flashlights would always block enemies and cause issues focusing them in your sight.
 
-- No more barrel shadows from any weapon light
-- AI flashlights and dropped guns no longer cast shadows through walls and geometry
-- **Per-light F12 sliders** — fine-tune the range and intensity of every flashlight individually
-- Supports every vanilla light plus all WTT ContentBackport lights out of the box
-- Learns the real name of any unrecognized native light the first time you see it in raid
-- Public API for mod authors to register their own lights into the slider system
+## What it does
+
+- Kills the barrel shadow on every weapon light, including AI guns and dropped weapons (no more shadows bleeding through walls)
+- Per-light range and intensity sliders in F12 — every flashlight in the game gets its own pair
+- Covers all vanilla lights and the WTT ContentBackport set out of the box
+- Meets a light it doesn't recognize? It learns the item's real name the first time you're in a raid with it, and files it under that from then on
+
+## For mod authors
+
+There's a small API to register your lights under their proper names instead of letting the codename guesser have a go:
+
+```csharp
+NoBarrelShadowAPI.RegisterLight(templateId, displayName);
+```
+
+Call it from your plugin's `Awake()` — load order doesn't matter.
 
 ## Install
 
-Extract the release zip into your SPT root folder.
+Release zip into the SPT root folder. SPT 4.0.x / BepInEx 5.x.
 
-## Compatibility
-
-- SPT 4.0.x
-- BepInEx 5.x
-
-## Bugs & feedback
-
-Open an [issue](../../issues) or leave a comment on the mod page. See [CHANGELOG.md](CHANGELOG.md) for version history.
+Something broken? [Issues](../../issues) or the mod page comments. [CHANGELOG.md](CHANGELOG.md) for history.
